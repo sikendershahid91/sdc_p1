@@ -3,3 +3,5 @@ nose
 matplotlib
 scipy
 numpy
+notebook
+opencv-python

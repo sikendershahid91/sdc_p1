@@ -18,7 +18,14 @@ for argument in "$@" ; do
 	test) paver test ; shift ;;
 	clean) paver clean ; shift ;;
         run) paver; paver clean ; python3 main.py; shift ;;
-	install) pip3 install $(cat requirements.txt) ; shift ;;
+	run-main) python3 main.py ; shift ;; 
+	install)
+	    if ! [ "$(which pip3)" = "" ] ; then
+		pip3 install $(cat requirements.txt) ;
+	    else
+		error "install pip3 first" ;
+	    fi
+	    shift ;; 
     esac
 done
 
