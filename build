@@ -1,0 +1,25 @@
+#!/usr/bin/env bash 
+
+_file=${0##*/}
+error(){ printf "\033[1;31m${_file}\033[0m: $@"; exit 1 ; }
+
+usage=\
+"
+Usage: ./build.sh [ options ]
+\t test  - run test cases 
+\t clean - clean garbage 
+\t run   - run everything 
+"
+
+
+if [ "$#" -eq 0 ] ; then error "${usage}" ; fi      
+for argument in "$@" ; do
+    case "${argument}" in
+	test) paver test ; shift ;;
+	clean) paver clean ; shift ;;
+        run) paver; paver clean ; shift ;;
+    esac
+done
+
+
+

@@ -1,0 +1,5 @@
+paver
+nose
+matplotlib
+scipy
+numpy
