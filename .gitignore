@@ -2,4 +2,5 @@
 *~
 \#*
 .\#*
-
+.coverage
+*/__pycache__/

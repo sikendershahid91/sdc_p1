@@ -17,7 +17,7 @@ for argument in "$@" ; do
     case "${argument}" in
 	test) paver test ; shift ;;
 	clean) paver clean ; shift ;;
-        run) paver; paver clean ; shift ;;
+        run) paver; paver clean ; python3 main.py; shift ;;
     esac
 done
 
